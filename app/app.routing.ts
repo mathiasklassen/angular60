@@ -6,7 +6,7 @@ import {AboutComponent} from './components/about.component';
 
 const appRoutes: Routes = [
     {
-        path:'',
+        path: '',
         component: UserComponent
     },
     {

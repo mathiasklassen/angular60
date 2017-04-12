@@ -8,8 +8,7 @@ import { Component } from '@angular/core';
 export class AboutComponent  {
     header_title: string;
 
-    constructor(){
-      this.header_title = "This is an about page!"
+    constructor() {
+      this.header_title = 'This is an about page!';
     }
-    
  }

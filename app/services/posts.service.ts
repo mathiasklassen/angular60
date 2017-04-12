@@ -4,11 +4,11 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class PostsService {
-    constructor(private http: Http){
+    constructor(private http: Http) {
         console.log('PostsService Initialized...');
     }
 
-    getPosts(){
+    getPosts() {
         return this.http.get('https://jsonplaceholder.typicode.com/posts')
             .map(res => res.json());
     }
