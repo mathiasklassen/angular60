@@ -1,15 +1,18 @@
 <h1>{{name}}</h1>
-<p><strong>Email:</strong> {{email}}</p>
-<p><strong>Address:</strong> {{address.street}} {{address.city}}, {{address.state}}</p>
-<button class="btn btn-default btn-md" style="cursor:pointer;" (click)="toggleHobbies()">{{showHobbies ? "Hide Hobbies"
-  : "Show Hobbies"}}
+<p>
+  <strong>Email:</strong> {{email}}
+  <br/>
+  <strong>Address:</strong> {{address.street}}, {{address.city}}, {{address.state}}
+</p>
+<button class="btn btn-info btn-sm" style="cursor:pointer;" (click)="toggleHobbies()">
+  {{showHobbies ? "Hide" : "Show"}} Hobbies ({{hobbies.length}})
 </button>
 <div *ngIf="showHobbies">
   <h3>Hobbies</h3>
   <ul>
     <li *ngFor="let hobby of hobbies; let i = index">
       {{hobby}}
-      <button class="btn btn-success btn-delete btn-xs" (click)="deleteHobby(i)">X</button>
+      <button class="btn btn-warning btn-delete btn-xs" (click)="deleteHobby(i)">X</button>
     </li>
   </ul>
   <form (submit)="addHobby(hobby.value)">
@@ -20,22 +23,35 @@
   </form>
 </div>
 <hr/>
-<h3>Edit User</h3>
+<h2>Edit User</h2>
 <form>
   <label>
+    Name:<br>
     <input type="text" name="name" [(ngModel)]="name"/>
-  </label><br/>
-  <label>Email: </label><br/>
-  <input type="text" name="email" [(ngModel)]="email"/><br/>
-  <label>Street: </label><br/>
-  <input type="text" name="address.street" [(ngModel)]="address.street"/><br/>
-  <label>City: </label><br/>
-  <input type="text" name="address.city" [(ngModel)]="address.city"/><br/>
-  <label>State: </label><br/>
-  <input type="text" name="address.state" [(ngModel)]="address.state"/><br/>
+  </label>
+  <br/>
+  <label>
+    Email:<br>
+    <input type="text" name="email" [(ngModel)]="email"/>
+  </label>
+  <br/>
+  <label>
+    Street:<br>
+    <input type="text" name="address.street" [(ngModel)]="address.street"/>
+  </label>
+  <br/>
+  <label>
+    City:<br>
+    <input type="text" name="address.city" [(ngModel)]="address.city"/>
+  </label>
+  <br/>
+  <label>
+    State:<br>
+    <input type="text" name="address.state" [(ngModel)]="address.state"/>
+  </label>
 </form>
 <hr/>
-<h3>Posts</h3>
+<h2>Posts</h2>
 <div *ngFor="let post of posts">
   <h3>{{post.title}}</h3>
   <p>{{post.body}}</p>
