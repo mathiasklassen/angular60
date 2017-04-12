@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {PostsService} from '../services/posts.service';
 
 @Component({
-    moduleId: module.id,
-    selector: 'user',
-    templateUrl: 'user.component.html',
-    providers: [PostsService]
+  moduleId: module.id,
+  selector: 'user',
+  templateUrl: 'user.component.html',
+  providers: [PostsService]
 })
-export class UserComponent  {
+export class UserComponent {
   name: string;
   email: string;
   address: Address;
@@ -19,39 +19,39 @@ export class UserComponent  {
     this.name = 'John Doe';
     this.email = 'john@gmail.com';
     this.address = {
-        street: '12 Main st',
-        city: 'Boston',
-        state: 'MA'
+      street: '12 Main st',
+      city: 'Boston',
+      state: 'MA'
     };
     this.hobbies = ['Music', 'Movies', 'Sports'];
     this.showHobbies = false;
     this.postsService.getPosts().subscribe(posts => {
-        this.posts = posts;
+      this.posts = posts;
     });
   }
 
 
   toggleHobbies() {
-      this.showHobbies = !this.showHobbies;
+    this.showHobbies = !this.showHobbies;
   }
 
   addHobby(hobby: any) {
-      this.hobbies.push(hobby);
+    this.hobbies.push(hobby);
   }
 
   deleteHobby(i: any) {
-      this.hobbies.splice(i, 1);
+    this.hobbies.splice(i, 1);
   }
 }
 
 interface Address {
-    street: string;
-    city: string;
-    state: string;
+  street: string;
+  city: string;
+  state: string;
 }
 
 interface Post {
-    id: number;
-    title: string;
-    body: string;
+  id: number;
+  title: string;
+  body: string;
 }
